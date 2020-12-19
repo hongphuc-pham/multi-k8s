@@ -11,6 +11,6 @@ docker push phhogphuc/multi-server:$SHA
 docker push phhogphuc/multi-worker:$SHA
 
 kubectl apply -f k8s
-kubectl set image deyployments/client-deyployment client=phhogphuc/multi-client:$SHA
-kubectl set image deyployments/server-deyployment server=phhogphuc/multi-server:$SHA
-kubectl set image deyployments/worker-deyployment worker=phhogphuc/multi-worker:$SHA
+kubectl set image deyployments/client-deployment client=phhogphuc/multi-client:$SHA
+kubectl set image deyployments/server-deployment server=phhogphuc/multi-server:$SHA
+kubectl set image deyployments/worker-deployment worker=phhogphuc/multi-worker:$SHA
