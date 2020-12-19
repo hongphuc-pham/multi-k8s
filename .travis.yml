@@ -10,14 +10,11 @@ env:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
   - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
-  - if [ ! -d $HOME/google-cloud-sdk/bin ]; then
-      # The install script errors if this directory already exists,
-      # but Travis already creates it when we mark it as cached.
-      rm -rf $HOME/google-cloud-sdk;
-      # The install script is overly verbose, which sometimes causes
-      # problems on Travis, so ignore stdout.
-      curl https://sdk.cloud.google.com | bash > /dev/null;
-    fi
+  - if [ ! -d $HOME/google-cloud-sdk/bin ]; then rm -rf $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash > /dev/null; fi
+  # The install script errors if this directory already exists,
+  # but Travis already creates it when we mark it as cached.
+  # The install script is overly verbose, which sometimes causes
+  # problems on Travis, so ignore stdout.
   # This line is critical. We setup the SDK to take precedence in our
   # environment over the old SDK that is already on the machine.
   - source $HOME/google-cloud-sdk/path.bash.inc
