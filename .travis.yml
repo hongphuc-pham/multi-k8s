@@ -1,3 +1,11 @@
+# The Google Cloud SDK on Travis is pretty old (2014). So if
+# you want to use an up-to-date version, you have to install
+# your own. This config is the bare minimum you'll need to
+# get an updated version of the SDK + kubectl.
+cache:
+  directories:
+  # We cache the SDK so we don't have to download it again on subsequent builds.
+  - $HOME/google-cloud-sdk
 services:
   - docker
 env:
