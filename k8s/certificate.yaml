@@ -14,7 +14,7 @@ spec:
   acme:
     config:
       - http01:
-        ingressClass: nginx
-      domains:
-        - toodyssey.com
-        - www.toodyssey.com
+          ingressClass: nginx
+        domains:
+          - toodyssey.com
+          - www.toodyssey.com
